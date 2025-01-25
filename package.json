@@ -1,0 +1,38 @@
+{
+  "name": "@nooobtimex/gamepadwrapper",
+  "version": "1.0.0",
+  "description": "A library for handling gamepad input seamlessly in web applications.",
+  "keywords": [
+    "gamepad",
+    "input",
+    "controller",
+    "javascript",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NooobtimeX/gamepadwrapper.git"
+  },
+  "license": "MIT",
+  "author": "NooobtimeX <nooobtimex@gmail.com>",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npx tsc",
+    "format": "npx prettier . --write",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-packagejson": "^2.5.8",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
