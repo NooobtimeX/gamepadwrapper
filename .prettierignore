@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Build and output folders
+.build/
+dist/
+.next/
+out/
+.nuxt/
+
+# Static asset folders (customize if necessary)
+public/
+static/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Log files
+*.log
+
+# Compiled files
+*.min.js
+*.min.css
+*.min.html
+*.map
+
+# Lockfiles (depending on the package manager)
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Specific framework files (customize if needed)
+tsconfig.json
+tailwind.config.js
+postcss.config.js
+nuxt.config.js
+next.config.js
+
+# Ignore test coverage output
+coverage/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
