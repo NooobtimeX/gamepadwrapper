@@ -87,3 +87,6 @@ h3 {
 * {
   @apply text-base;
 }
+img {
+  @apply rounded-xl;
+}

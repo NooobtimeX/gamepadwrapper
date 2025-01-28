@@ -1,32 +1,17 @@
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import PlaceholderContent from "@/components/demo/placeholder-content";
+import Breadcrumbs from "@/components/section/Breadcrumb";
 import NavigationSection from "@/components/section/NavigationSection";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import Link from "next/link";
 
 export default function CategoriesPage() {
   return (
     <ContentLayout title="Getting Started">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/document">Document</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Introduction</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <Breadcrumbs
+        items={[
+          { href: "/docs", label: "Document" },
+          { href: "/docs/introduction", label: "Introduction" },
+        ]}
+      />
       <PlaceholderContent>
         <h1 className="text-3xl font-semibold ">Introduction</h1>
         <h2 className="text-2xl font-medium  mt-4">

@@ -1,4 +1,4 @@
-import { FileText, LucideIcon, Package, Plug, Settings } from "lucide-react"; // Replaced IoIosDocument
+import { FileText, LucideIcon, Package, Settings } from "lucide-react"; // Replaced IoIosDocument
 
 type Submenu = {
   href: string;
@@ -57,12 +57,6 @@ export function getMenuList(pathname: string): Group[] {
           ],
         },
         {
-          href: "/docs/connectionhandling",
-          label: "Connection Handling",
-          icon: Plug, // Updated to Lucide
-          submenus: [],
-        },
-        {
           href: "/docs/gamepadinformation",
           label: "Gamepad Information",
           icon: FileText, // Updated to Lucide
@@ -84,6 +78,10 @@ export function getMenuList(pathname: string): Group[] {
             {
               href: "/docs/event/joystick",
               label: "Joystick Event",
+            },
+            {
+              href: "/docs/event/vibration",
+              label: "Vibration Event",
             },
           ],
         },

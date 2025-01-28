@@ -1,4 +1,4 @@
-import { MenuIcon, PanelsTopLeft } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 
 import { Menu } from "@/components/admin-panel/menu";
@@ -27,7 +27,7 @@ export function SheetMenu() {
             asChild
           >
             <Link href="/" className="flex items-center gap-2">
-              <PanelsTopLeft className="w-6 h-6 mr-1" />
+              <img src="/favicon.png" className="w-12 h-12" />
               <SheetTitle className="font-bold text-lg">
                 gamepadwrapper
               </SheetTitle>
