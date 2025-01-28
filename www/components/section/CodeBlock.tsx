@@ -1,11 +1,19 @@
-import { Card } from "@/components/ui/card";
-import { ReactNode } from "react";
+// components/CodeBlock.tsx
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const CodeBlock = ({ children }: { children: ReactNode }) => {
+type CodeBlockProps = {
+  language: string;
+  code: string;
+};
+
+const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
   return (
-    <Card className="p-4 rounded-lg mt-4 overflow-x-auto">
-      <code>{children}</code>
-    </Card>
+    <section className="rounded-lg">
+      <SyntaxHighlighter language={language} style={materialOceanic}>
+        {code}
+      </SyntaxHighlighter>
+    </section>
   );
 };
 
