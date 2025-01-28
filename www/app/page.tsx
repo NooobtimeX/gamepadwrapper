@@ -1,4 +1,4 @@
-import { ArrowRight, Github, LayoutDashboard } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ export default function HomePage() {
             href="/"
             className="flex justify-start items-center hover:opacity-85 transition-opacity duration-300"
           >
-            <LayoutDashboard className="w-6 h-6 mr-3" />
+            <img src="/favicon.png" className="w-12 h-12 mr-1" />
             <span className="font-bold">@nooobtimex/gamepadwrapper</span>
             <span className="sr-only">@nooobtimex/gamepadwrapper</span>
           </Link>
