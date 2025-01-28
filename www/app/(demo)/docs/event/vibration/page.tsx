@@ -1,17 +1,8 @@
-import Link from "next/link";
-
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import PlaceholderContent from "@/components/demo/placeholder-content";
+import Breadcrumbs from "@/components/section/Breadcrumb";
 import CodeBlock from "@/components/section/CodeBlock";
 import NavigationSection from "@/components/section/NavigationSection";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 
 export default function CategoriesPage() {
   const explainVibrationCode = `manager.setVibration(which gamepad, intensity, 'soft/hard');`;
@@ -19,25 +10,13 @@ export default function CategoriesPage() {
 
   return (
     <ContentLayout title="API Reference">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/document">Document</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/event">Event</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Vibration</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <Breadcrumbs
+        items={[
+          { href: "/docs", label: "Document" },
+          { href: "/docs/event", label: "Event" },
+          { href: "/docs/event/vibration", label: "Vibration" },
+        ]}
+      />
       <PlaceholderContent>
         <h1>Vibration Event</h1>
         <section className="mt-6">

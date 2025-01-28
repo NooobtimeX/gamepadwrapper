@@ -1,16 +1,8 @@
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import PlaceholderContent from "@/components/demo/placeholder-content";
+import Breadcrumbs from "@/components/section/Breadcrumb";
 import CodeBlock from "@/components/section/CodeBlock";
 import NavigationSection from "@/components/section/NavigationSection";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import Link from "next/link";
 
 export default function CategoriesPage() {
   const gamepadStateCode = `{
@@ -29,19 +21,12 @@ export default function CategoriesPage() {
 
   return (
     <ContentLayout title="GamepadManager Documentation">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/document">Document</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>GamepadManager Usage</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <Breadcrumbs
+        items={[
+          { href: "/docs", label: "Document" },
+          { href: "/docs/gamepadinformation", label: "Gamepad Information" },
+        ]}
+      />
       <PlaceholderContent>
         <h1 className="text-xl font-semibold">How to Use GamepadManager</h1>
         <p>

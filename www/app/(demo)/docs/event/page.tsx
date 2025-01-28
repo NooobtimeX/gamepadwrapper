@@ -1,17 +1,9 @@
-import Link from "next/link";
-
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import PlaceholderContent from "@/components/demo/placeholder-content";
+import Breadcrumbs from "@/components/section/Breadcrumb";
 import NavigationSection from "@/components/section/NavigationSection";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Card } from "@/components/ui/card";
+import { Link } from "lucide-react";
 
 export default function CategoriesPage() {
   const cardItems = [
@@ -36,19 +28,12 @@ export default function CategoriesPage() {
   ];
   return (
     <ContentLayout title="API Reference">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/document">Document</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Event</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <Breadcrumbs
+        items={[
+          { href: "/docs", label: "Document" },
+          { href: "/docs/event", label: "Event" },
+        ]}
+      />
       <PlaceholderContent>
         <h1>Event Introduction</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

@@ -1,40 +1,19 @@
-import Link from "next/link";
-
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import PlaceholderContent from "@/components/demo/placeholder-content";
+import Breadcrumbs from "@/components/section/Breadcrumb";
 import CodeBlock from "@/components/section/CodeBlock";
 import NavigationSection from "@/components/section/NavigationSection";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 
 export default function CategoriesPage() {
   return (
     <ContentLayout title="API Reference">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/document">Document</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/installation">Setup</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>NEXT JS</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <Breadcrumbs
+        items={[
+          { href: "/docs", label: "Document" },
+          { href: "/docs/setup", label: "Setup" },
+          { href: "/docs/setup/nextjs", label: "NEXT JS" },
+        ]}
+      />
 
       <PlaceholderContent>
         <h1 className="text-3xl font-bold">Setup with NEXT JS</h1>
