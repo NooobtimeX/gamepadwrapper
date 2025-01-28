@@ -33,8 +33,8 @@ export default function CategoriesPage() {
       </PlaceholderContent>
       <NavigationSection
         previous={{
-          href: "/docs/event/joystick",
-          label: "JoyStick Event",
+          href: "/docs/event/vibration",
+          label: "Vibration Event",
         }}
         next={{
           href: "/docs/browsercompatibility",

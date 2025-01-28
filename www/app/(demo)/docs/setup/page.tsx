@@ -57,8 +57,8 @@ export default function CategoriesPage() {
           label: "Installation",
         }}
         next={{
-          href: "/docs/connectionhandling",
-          label: "Connection Handling",
+          href: "/docs/gamepadinformation",
+          label: "Gamepad Information",
         }}
       />
     </ContentLayout>

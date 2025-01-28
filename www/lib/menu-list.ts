@@ -79,6 +79,10 @@ export function getMenuList(pathname: string): Group[] {
               href: "/docs/event/joystick",
               label: "Joystick Event",
             },
+            {
+              href: "/docs/event/vibration",
+              label: "Vibration Event",
+            },
           ],
         },
         {

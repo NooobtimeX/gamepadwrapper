@@ -27,6 +27,12 @@ export default function CategoriesPage() {
         "This is the full description for card 2, providing more details.",
       link: "/docs/event/joystick",
     },
+    {
+      title: "Vibration Event",
+      description:
+        "This is the full description for card 2, providing more details.",
+      link: "/docs/event/vibration",
+    },
   ];
   return (
     <ContentLayout title="API Reference">
