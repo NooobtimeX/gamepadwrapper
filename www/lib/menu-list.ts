@@ -54,10 +54,6 @@ export function getMenuList(pathname: string): Group[] {
               href: "/docs/setup/nextjs",
               label: "NEXT JS",
             },
-            {
-              href: "/docs/setup/nuxtjs",
-              label: "NUXT JS",
-            },
           ],
         },
         {

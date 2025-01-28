@@ -21,12 +21,6 @@ export default function CategoriesPage() {
         "This is the full description for card 1, providing more details.",
       link: "/docs/setup/nextjs",
     },
-    {
-      title: "NUXT JS",
-      description:
-        "This is the full description for card 2, providing more details.",
-      link: "/docs/setup/nuxtjs",
-    },
   ];
 
   return (

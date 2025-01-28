@@ -1,8 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import PlaceholderContent from "@/components/demo/placeholder-content";
 import CodeBlock from "@/components/section/CodeBlock";
@@ -15,6 +12,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function CategoriesPage() {
   const [nodeManager, setNodeManager] =
@@ -83,7 +82,7 @@ export default function CategoriesPage() {
           install GamepadWrapper by running the following command in your
           project directory:
         </p>
-        <CodeBlock>{installationCommand[nodeManager]}</CodeBlock>
+        <CodeBlock language="bash" code={installationCommand[nodeManager]} />
 
         <h2 className="text-2xl font-medium mt-6">Verifying Installation</h2>
         <p className="mt-2 text-lg ">
@@ -91,16 +90,20 @@ export default function CategoriesPage() {
           has been added to your dependencies by checking your package.json file
           for the following entry:
         </p>
-        <CodeBlock>"@nooobtimex/gamepadwrapper": "^x.x.x"</CodeBlock>
+        <CodeBlock
+          language="json"
+          code={`"@nooobtimex/gamepadwrapper": "^x.x.x"`}
+        />
 
         <h2 className="text-2xl font-medium mt-6">Usage</h2>
         <p className="mt-2 text-lg ">
           After installation, you're ready to start using GamepadWrapper in your
           project! Import it into your JavaScript or TypeScript files like so:
         </p>
-        <CodeBlock>
-          import &#123; GamepadWrapper &#125; from "@nooobtimex/gamepadwrapper";
-        </CodeBlock>
+        <CodeBlock
+          language="typescript"
+          code={`import { GamepadWrapper } from "@nooobtimex/gamepadwrapper";`}
+        />
         <p className="mt-2 text-lg ">
           Now you can begin interacting with gamepad devices, detecting buttons
           and axis movements within your application.

@@ -1,53 +1,18 @@
 "use client";
 
-import { GamepadManager } from "@nooobtimex/gamepadwrapper";
+import { GamepadManager, GamepadState } from "@nooobtimex/gamepadwrapper";
 import { useEffect, useState } from "react";
 
-type GamepadButton = {
-  name: string;
-  pressed: boolean;
-  value: number;
-};
-
-type Stick = {
-  x: number;
-  y: number;
-};
-
-type GamepadInfo = {
-  id: string;
-  index: number;
-  mapping: string;
-  connected: boolean;
-  buttons: GamepadButton[];
-  leftStick: Stick;
-  rightStick: Stick;
-};
-
 const GamepadManagerDemo = () => {
-  const [gamepadInfo, setGamepadInfo] = useState<GamepadInfo[]>([]);
-
-  const renderGamepad = (gamepad: any): GamepadInfo => ({
-    id: gamepad.id,
-    index: gamepad.index,
-    mapping: gamepad.mapping,
-    connected: gamepad.connected,
-    buttons: gamepad.buttons.map((button: any, index: number) => ({
-      name: button.name || `Button ${index}`,
-      pressed: button.pressed,
-      value: button.value,
-    })),
-    leftStick: { ...gamepad.leftStick },
-    rightStick: { ...gamepad.rightStick },
-  });
+  const [gamepadInfo, setGamepadInfo] = useState<GamepadState[]>([]);
 
   useEffect(() => {
-    const manager = new GamepadManager((gamepads: any) => {
-      setGamepadInfo(Object.values(gamepads).map(renderGamepad));
+    const manager = new GamepadManager((gamepads) => {
+      setGamepadInfo(Object.values(gamepads));
     });
 
     return () => {
-      manager.disconnect();
+      manager.stop();
     };
   }, []);
 
@@ -59,16 +24,11 @@ const GamepadManagerDemo = () => {
         </h1>
 
         {gamepadInfo.length === 0 ? (
-          <div className="p-5 bg-gray-800 rounded-lg shadow-lg">
-            <p>Connect a gamepad to see its status.</p>
-          </div>
+          <p>No gamepads connected.</p>
         ) : (
           gamepadInfo.map((gamepad) => (
-            <div
-              key={gamepad.index}
-              className="mb-4 p-4 border border-gray-700 rounded-lg bg-gray-800"
-            >
-              <h2 className="text-xl font-semibold">Gamepad: {gamepad.id}</h2>
+            <div key={gamepad.index}>
+              <h2>{gamepad.id}</h2>
               <p>Index: {gamepad.index}</p>
               <p>Mapping: {gamepad.mapping}</p>
               <p>Connected: {gamepad.connected ? "Yes" : "No"}</p>

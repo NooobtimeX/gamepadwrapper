@@ -35,53 +35,97 @@ export default function CategoriesPage() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <PlaceholderContent>
-        <h1>Setup with NEXT JS</h1>
-        <h2>2. Import and Initialize</h2>
-        <CodeBlock>
-          import &#123; GamepadManager &#123; from "@nooobtimex/gamepadwrapper";
-        </CodeBlock>
-        <CodeBlock>
-          import &#123; useEffect, useState &#123; from "react";
-        </CodeBlock>
-        <p>
-          Import the GamepadManager class into the file where you intend to
-          implement gamepad controls.
-        </p>
 
-        <h2>3. Set Up the Manager</h2>
-        <CodeBlock>const manager = new GamepadManager(callback);</CodeBlock>
-        <p>
+      <PlaceholderContent>
+        <h1 className="text-3xl font-bold">Setup with NEXT JS</h1>
+
+        <h2 className="text-2xl font-semibold mt-6">
+          1. Import and Initialize
+        </h2>
+        <CodeBlock
+          language="typescript"
+          code={`"use client";
+import { GamepadManager, GamepadState } from "@nooobtimex/gamepadwrapper";
+import { useEffect, useState } from "react";`}
+        />
+        <p className="mt-4">
+          Import the <code>GamepadManager</code> class into the file where you
+          intend to implement gamepad controls.
+        </p>
+        <h2 className="text-2xl font-semibold mt-6">2. Set Up the State</h2>
+        <CodeBlock
+          language="typescript"
+          code={`const [gamepadInfo, setGamepadInfo] = useState<GamepadState[]>([]);`}
+        />
+        <p className="mt-4">
           Pass a callback function to handle the gamepad's state changes. This
           function will be called with the current state of connected gamepads.
         </p>
+        <h2 className="text-2xl font-semibold mt-6">
+          3. Handle Gamepad Events
+        </h2>
+        <CodeBlock
+          language="typescript"
+          code={`useEffect(() => {
+  const manager = new GamepadManager((gamepads) => {
+      setGamepadInfo(Object.values(gamepads));
+  });
 
-        <h2>4. Handle Gamepad Events</h2>
-        <CodeBlock>
-          useEffect(() =&gt; {"{"}
-          const manager = new GamepadManager((gamepads) =&gt; {"{"}
-          // Handle gamepad data
-          {"}"}); return () =&gt; {"{"}
-          manager.stop();
-          {"}"};{"}"}, []);
-        </CodeBlock>
-        <p>
-          Use the `useEffect` hook to initialize and stop the manager within
-          your component's lifecycle.
+  return () => {
+    manager.stop();
+  };
+}, []);`}
+        />
+        <p className="mt-4">
+          Use the <code>useEffect</code> hook to initialize and stop the manager
+          within your component's lifecycle.
         </p>
 
-        <h2>5. Render Gamepad Data</h2>
-        <CodeBlock>
-          <div>
-            {" "}
-            {"{"} /* Render gamepad information here */ {"}"}
-          </div>
-        </CodeBlock>
+        <h2 className="text-2xl font-semibold mt-6">4. Render Gamepad Data</h2>
+        <CodeBlock
+          language="tsx"
+          code={`{
+  gamepadInfo.length === 0 ? (
+    <p>No gamepads connected.</p>
+  ) : (
+    gamepadInfo.map((gamepad) => (
+      <div key={gamepad.index}>
+        <h2>{gamepad.id}</h2>
+        <p>Index: {gamepad.index}</p>
+        <p>Mapping: {gamepad.mapping}</p>
+        <p>Connected: {gamepad.connected ? "Yes" : "No"}</p>
+
+        <h3 className="mt-2 text-lg font-semibold">Buttons:</h3>
+        <ul className="list-disc pl-5">
+          {gamepad.buttons.map((button, index) => (
+            <li key={index}>
+              {button.name}: {button.pressed ? "Pressed" : "Released"}
+              (Value: {button.value})
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="mt-2 text-lg font-semibold">Left Stick:</h3>
         <p>
+          X: {gamepad.leftStick.x}, Y: {gamepad.leftStick.y}
+        </p>
+
+        <h3 className="mt-2 text-lg font-semibold">Right Stick:</h3>
+        <p>
+          X: {gamepad.rightStick.x}, Y: {gamepad.rightStick.y}
+        </p>
+      </div>
+    ))
+  );
+}
+`}
+        />
+        <p className="mt-4">
           Update your component's state based on gamepad data and render it as
           required.
         </p>
       </PlaceholderContent>
+
       <NavigationSection
         previous={{
           href: "/docs/installation",
