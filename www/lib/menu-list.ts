@@ -1,4 +1,4 @@
-import { FileText, LucideIcon, Package, Plug, Settings } from "lucide-react"; // Replaced IoIosDocument
+import { FileText, LucideIcon, Package, Settings } from "lucide-react"; // Replaced IoIosDocument
 
 type Submenu = {
   href: string;
@@ -55,12 +55,6 @@ export function getMenuList(pathname: string): Group[] {
               label: "NEXT JS",
             },
           ],
-        },
-        {
-          href: "/docs/connectionhandling",
-          label: "Connection Handling",
-          icon: Plug, // Updated to Lucide
-          submenus: [],
         },
         {
           href: "/docs/gamepadinformation",
