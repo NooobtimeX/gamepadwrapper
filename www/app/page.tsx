@@ -60,7 +60,7 @@ export default function HomePage() {
               height={608}
               alt="demo"
               priority
-              className="border rounded-xl shadow-sm dark:hidden"
+              className="border rounded-xl  dark:hidden"
             />
             <Image
               src="/demo-dark-min.png"
@@ -68,7 +68,7 @@ export default function HomePage() {
               height={608}
               alt="demo-dark"
               priority
-              className="border border-zinc-600 rounded-xl shadow-sm hidden dark:block dark:shadow-gray-500/5"
+              className="border border-zinc-600 rounded-xl  hidden dark:block "
             />
             <Image
               src="/demo-mobile-light-min.png"
