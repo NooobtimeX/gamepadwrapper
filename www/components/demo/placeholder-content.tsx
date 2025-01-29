@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ReactNode } from "react";
-
+import React, { ReactNode } from "react";
 interface PlaceholderContentProps {
   children: ReactNode;
 }

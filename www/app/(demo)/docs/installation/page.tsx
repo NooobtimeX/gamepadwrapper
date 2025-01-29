@@ -22,7 +22,7 @@ export default function CategoriesPage() {
   };
 
   return (
-    <ContentLayout title="Installation">
+    <ContentLayout>
       <Breadcrumbs
         items={[
           { href: "/docs", label: "Document" },
@@ -82,8 +82,9 @@ export default function CategoriesPage() {
 
         <h2 className="text-2xl font-medium mt-6">Usage</h2>
         <p className="mt-2 text-lg ">
-          After installation, you're ready to start using GamepadWrapper in your
-          project! Import it into your JavaScript or TypeScript files like so:
+          After installation, you&apos;re ready to start using GamepadWrapper in
+          your project! Import it into your JavaScript or TypeScript files like
+          so:
         </p>
         <CodeBlock
           language="typescript"

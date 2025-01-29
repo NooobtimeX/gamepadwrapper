@@ -20,6 +20,7 @@ type Group = {
 };
 
 export function getMenuList(pathname: string): Group[] {
+  console.log(pathname);
   return [
     {
       groupLabel: "Getting Started",

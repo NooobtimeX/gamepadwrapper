@@ -44,7 +44,7 @@ export default function CategoriesPage() {
   ];
 
   return (
-    <ContentLayout title="Getting Started">
+    <ContentLayout>
       <PlaceholderContent>
         <h1>Getting Started</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">

@@ -23,7 +23,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
     <Card className="relative rounded-lg bg-gray-100 dark:bg-gray-800">
       <button
         onClick={handleCopy}
-        className="absolute top-2 right-2 px-2 py-1 text-sm text-white bg-gray-600 rounded shadow hover:bg-gray-700 focus:outline-none"
+        className="absolute top-2 right-2 px-2 py-1 text-sm text-white bg-gray-600 rounded shadow-sm hover:bg-gray-700 focus:outline-hidden"
       >
         {isCopied ? "Copied!" : "Copy"}
       </button>
