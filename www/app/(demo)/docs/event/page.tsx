@@ -3,7 +3,7 @@ import PlaceholderContent from "@/components/demo/placeholder-content";
 import Breadcrumbs from "@/components/section/Breadcrumb";
 import NavigationSection from "@/components/section/NavigationSection";
 import { Card } from "@/components/ui/card";
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 export default function CategoriesPage() {
   const cardItems = [
