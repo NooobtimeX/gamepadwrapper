@@ -5,7 +5,7 @@ import NavigationSection from "@/components/section/NavigationSection";
 
 export default function CategoriesPage() {
   return (
-    <ContentLayout title="Getting Started">
+    <ContentLayout>
       <Breadcrumbs
         items={[
           { href: "/docs", label: "Document" },
@@ -22,7 +22,7 @@ export default function CategoriesPage() {
           designed to simplify working with gamepad input. It abstracts away the
           complexities of the Gamepad API, allowing developers to seamlessly
           integrate gamepad controls into their web applications, games, or
-          interactive projects. Whether you're building a modern web game,
+          interactive projects. Whether you&apos;re building a modern web game,
           crafting a unique controller-based experience, or prototyping for a
           creative project, GamepadWrapper gives you the tools you need to
           detect, configure, and utilize gamepad inputs effortlessly.
@@ -55,13 +55,13 @@ export default function CategoriesPage() {
           can be challenging, as it involves handling low-level details like
           device discovery, input mapping, and managing multiple controllers.
           GamepadWrapper streamlines this process, letting you focus on your
-          application's functionality instead of wrangling technical
+          application&apos;s functionality instead of wrangling technical
           intricacies.
         </p>
         <p className="mt-2 text-lg ">
-          Whether you're a seasoned developer or new to gamepad integration,
-          GamepadWrapper provides a simple and intuitive way to harness the
-          power of game controllers in your web projects.
+          Whether you&apos;re a seasoned developer or new to gamepad
+          integration, GamepadWrapper provides a simple and intuitive way to
+          harness the power of game controllers in your web projects.
         </p>
         <h3 className="mt-4 text-lg font-semibold ">
           Let’s dive in and explore how to get started!

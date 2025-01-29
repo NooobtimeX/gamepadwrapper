@@ -9,7 +9,7 @@ export default function CategoriesPage() {
   const vibrationCode = `manager.setVibration(0, 0.8, 'soft');`;
 
   return (
-    <ContentLayout title="API Reference">
+    <ContentLayout>
       <Breadcrumbs
         items={[
           { href: "/docs", label: "Document" },

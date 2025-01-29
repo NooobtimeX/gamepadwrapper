@@ -27,7 +27,7 @@ export default function CategoriesPage() {
     },
   ];
   return (
-    <ContentLayout title="API Reference">
+    <ContentLayout>
       <Breadcrumbs
         items={[
           { href: "/docs", label: "Document" },

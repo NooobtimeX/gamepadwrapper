@@ -6,7 +6,7 @@ import NavigationSection from "@/components/section/NavigationSection";
 
 export default function CategoriesPage() {
   return (
-    <ContentLayout title="API Reference">
+    <ContentLayout>
       <Breadcrumbs
         items={[
           { href: "/docs", label: "Document" },
@@ -37,8 +37,9 @@ import { useEffect, useState } from "react";`}
           code={`const [gamepadInfo, setGamepadInfo] = useState<GamepadState[]>([]);`}
         />
         <p className="mt-4">
-          Pass a callback function to handle the gamepad's state changes. This
-          function will be called with the current state of connected gamepads.
+          Pass a callback function to handle the gamepad&apos;s state changes.
+          This function will be called with the current state of connected
+          gamepads.
         </p>
         <h2 className="text-2xl font-semibold mt-6">
           3. Handle Gamepad Events
@@ -57,7 +58,7 @@ import { useEffect, useState } from "react";`}
         />
         <p className="mt-4">
           Use the <code>useEffect</code> hook to initialize and stop the manager
-          within your component's lifecycle.
+          within your component&apos;s lifecycle.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6">4. Render Gamepad Data</h2>
@@ -100,8 +101,8 @@ import { useEffect, useState } from "react";`}
 `}
         />
         <p className="mt-4">
-          Update your component's state based on gamepad data and render it as
-          required.
+          Update your component&apos;s state based on gamepad data and render it
+          as required.
         </p>
       </PlaceholderContent>
 

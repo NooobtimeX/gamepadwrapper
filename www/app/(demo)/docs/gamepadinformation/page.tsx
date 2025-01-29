@@ -20,7 +20,7 @@ export default function CategoriesPage() {
 }`;
 
   return (
-    <ContentLayout title="GamepadManager Documentation">
+    <ContentLayout>
       <Breadcrumbs
         items={[
           { href: "/docs", label: "Document" },
@@ -39,7 +39,7 @@ export default function CategoriesPage() {
           <h2 className="text-lg font-semibold">Gamepad State</h2>
           <p>
             Gamepad states are updated dynamically and passed to your callback.
-            Here's an example of what a gamepad state might look like:
+            Here&apos;s an example of what a gamepad state might look like:
           </p>
           <CodeBlock language="typescript" code={gamepadStateCode} />
         </section>

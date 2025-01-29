@@ -34,17 +34,7 @@ export function Sidebar() {
           asChild
         >
           <Link href="/" className="flex items-center gap-2">
-            <img src="/favicon.png" className="w-12 h-12" />
-            <h1
-              className={cn(
-                "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
-                !getOpenState()
-                  ? "-translate-x-96 opacity-0 hidden"
-                  : "translate-x-0 opacity-100"
-              )}
-            >
-              gamepadwrapper
-            </h1>
+            <img src="/favicon.png" className="w-10 h-10 aspect-square" />
           </Link>
         </Button>
         <Menu isOpen={getOpenState()} />
