@@ -9,7 +9,7 @@ const PlaceholderContent: React.FC<PlaceholderContentProps> = ({
   children,
 }) => {
   return (
-    <Card className="rounded-lg border-none mt-6">
+    <Card>
       <CardContent className="p-6">{children}</CardContent>
     </Card>
   );
