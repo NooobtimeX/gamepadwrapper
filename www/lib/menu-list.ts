@@ -76,7 +76,7 @@ export function getMenuList(pathname: string): Group[] {
           submenus: [],
         },
         {
-          href: "/docs/browsercompatibility",
+          href: "https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API",
           label: "Browser Compatibility",
           icon: FileText, // Updated to Lucide
           submenus: [],
