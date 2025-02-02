@@ -21,7 +21,7 @@ const NavigationSection = ({ previous, next }: NavigationSectionProps) => {
       <Link href={previous.href} passHref>
         <Button
           variant="ghost"
-          className="inline-flex items-center gap-2 h-9 px-4 py-2"
+          className="inline-flex items-center gap-2 h-9 px-4 py-2 hover:cursor-pointer"
         >
           <ChevronLeft className="shrink-0" />
           {previous.label}
@@ -32,7 +32,7 @@ const NavigationSection = ({ previous, next }: NavigationSectionProps) => {
       <Link href={next.href} passHref>
         <Button
           variant="ghost"
-          className="inline-flex items-center gap-2 h-9 px-4 py-2 ml-auto"
+          className="inline-flex items-center gap-2 h-9 px-4 py-2 ml-auto hover:cursor-pointer"
         >
           {next.label}
           <ChevronRight className="shrink-0" />

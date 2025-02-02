@@ -41,19 +41,19 @@ export default function CategoriesPage() {
         <div className="mt-4 flex space-x-4">
           <button
             onClick={() => handleToggle("npm")}
-            className={`p-2 rounded-lg ${nodeManager === "npm" ? "bg-black text-white" : "bg-white text-black"}`}
+            className={`p-2 rounded-lg hover:cursor-pointer ${nodeManager === "npm" ? "bg-black text-white" : "bg-white text-black"}`}
           >
             npm
           </button>
           <button
             onClick={() => handleToggle("yarn")}
-            className={`p-2 rounded-lg ${nodeManager === "yarn" ? "bg-black text-white" : "bg-white text-black"}`}
+            className={`p-2 rounded-lg hover:cursor-pointer ${nodeManager === "yarn" ? "bg-black text-white" : "bg-white text-black"}`}
           >
             yarn
           </button>
           <button
             onClick={() => handleToggle("pnpm")}
-            className={`p-2 rounded-lg ${nodeManager === "pnpm" ? "bg-black text-white" : "bg-white text-black"}`}
+            className={`p-2 rounded-lg hover:cursor-pointer ${nodeManager === "pnpm" ? "bg-black text-white" : "bg-white text-black"}`}
           >
             pnpm
           </button>

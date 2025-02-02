@@ -64,27 +64,10 @@ export function getMenuList(pathname: string): Group[] {
           submenus: [],
         },
         {
-          href: "",
+          href: "/docs/event",
           label: "Event",
           icon: FileText, // Updated to Lucide
-          submenus: [
-            {
-              href: "/docs/event",
-              label: "Event",
-            },
-            {
-              href: "/docs/event/button",
-              label: "Button Event",
-            },
-            {
-              href: "/docs/event/joystick",
-              label: "Joystick Event",
-            },
-            {
-              href: "/docs/event/vibration",
-              label: "Vibration Event",
-            },
-          ],
+          submenus: [],
         },
         {
           href: "/docs/customnamemapping",
