@@ -1,56 +1,87 @@
-declare module "@nooobtimex/gamepadwrapper" {
-  // Define your types here
-  export class GamepadManager {
-    gamepads: Record<number, any>;
-    animationFrameId: number | null;
-    onUpdate: (gamepads: Record<number, any>) => void;
-    deadZone: number;
-    precision: number;
-    vibrationDuration: number;
+// @types/gamepadwrapper.d.ts
 
-    constructor(
-      onUpdate: (gamepads: Record<number, any>) => void,
-      options?: { deadZone?: number; precision?: number }
-    );
+export interface ExtendedGamepad extends Gamepad {
+  pose?: GamepadPose;
+  hapticActuators?: GamepadHapticActuator[];
+  hand?: string;
+  displayId?: string;
+}
 
-    start(): void;
-    stop(): void;
-    setButtonMapping(
-      gamepadId: string,
-      mappingType: string,
-      mapping: any
-    ): void;
-    setVibration(
-      gamepadIndex: number,
-      intensity: number,
-      type: "soft" | "hard"
-    ): void;
-  }
+export type GamepadPose = {
+  hasOrientation: boolean;
+  orientation: [number, number, number, number];
+  hasPosition: boolean;
+  position: [number, number, number];
+};
 
-  export type GamepadState = {
-    id: string;
-    index: number;
-    buttons: { value: number; pressed: boolean; name?: string }[];
-    leftStick: { x: number; y: number };
-    rightStick: { x: number; y: number };
-    mapping: string;
-    connected: boolean;
-    pose?: GamepadPose;
-    hapticActuators?: GamepadHapticActuator[];
-    hand?: string;
-    displayId?: string;
-  };
+export type GamepadHapticActuator = {
+  type: string;
+  active: boolean;
+  intensity: number;
+};
 
-  export type GamepadPose = {
-    hasOrientation: boolean;
-    orientation: [number, number, number, number];
-    hasPosition: boolean;
-    position: [number, number, number];
-  };
+export type GamepadState = {
+  id: string;
+  index: number;
+  timestamp: number;
+  buttons: {
+    value: number;
+    pressed: boolean;
+    name?: string;
+    touched?: boolean;
+  }[];
+  leftStick: { x: number; y: number };
+  rightStick: { x: number; y: number };
+  mapping: string;
+  connected: boolean;
+  pose?: GamepadPose;
+  hapticActuators?: GamepadHapticActuator[];
+  hand?: string;
+  displayId?: string;
+  rawAxes?: number[];
+  vibrationActuator?: any;
+};
 
-  export type GamepadHapticActuator = {
-    type: string;
-    active: boolean;
-    intensity: number;
-  };
+export type GamepadUpdateCallback = (
+  gamepads: Record<number, GamepadState>
+) => void;
+
+export type ButtonEvent = {
+  gamepadIndex: number;
+  buttonIndex: number;
+  pressed: boolean;
+  value?: number;
+  name?: string;
+};
+
+export type AxisEvent = {
+  gamepadIndex: number;
+  axisIndex: number;
+  value: number;
+};
+
+export type MultiButtonPressEvent = {
+  gamepadIndex: number;
+  buttonIndices: number[];
+  pressed: boolean;
+  duration?: number;
+};
+
+export class GamepadManager {
+  constructor(
+    onUpdate?: GamepadUpdateCallback,
+    options?: { deadZone?: number; precision?: number }
+  );
+  start(): void;
+  stop(): void;
+  setButtonMapping(
+    gamepadId: string,
+    mappingType: "custom" | "preset",
+    mapping: Record<number, { index: number; name: string }>
+  ): void;
+  setVibration(
+    gamepadIndex: number,
+    intensity: number,
+    type: "soft" | "hard"
+  ): void;
 }

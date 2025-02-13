@@ -1,61 +1,9 @@
-export interface ExtendedGamepad extends Gamepad {
-  pose?: GamepadPose;
-  hapticActuators?: GamepadHapticActuator[];
-  hand?: string;
-  displayId?: string;
-}
-
-export type GamepadState = {
-  id: string;
-  index: number;
-  buttons: { value: number; pressed: boolean; name?: string }[];
-  leftStick: { x: number; y: number };
-  rightStick: { x: number; y: number };
-  mapping: string;
-  connected: boolean;
-  pose?: GamepadPose;
-  hapticActuators?: GamepadHapticActuator[];
-  hand?: string;
-  displayId?: string;
-};
-
-export type GamepadPose = {
-  hasOrientation: boolean;
-  orientation: [number, number, number, number];
-  hasPosition: boolean;
-  position: [number, number, number];
-};
-
-export type GamepadHapticActuator = {
-  type: string;
-  active: boolean;
-  intensity: number;
-};
-
-export type GamepadUpdateCallback = (
-  gamepads: Record<number, GamepadState>
-) => void;
-
-export type ButtonEvent = {
-  gamepadIndex: number;
-  buttonIndex: number;
-  pressed: boolean;
-  value?: number;
-  name?: string;
-};
-
-export type AxisEvent = {
-  gamepadIndex: number;
-  axisIndex: number;
-  value: number;
-};
-
-export type MultiButtonPressEvent = {
-  gamepadIndex: number;
-  buttonIndices: number[];
-  pressed: boolean;
-  duration?: number;
-};
+// src/index.ts
+import type {
+  ExtendedGamepad,
+  GamepadState,
+  GamepadUpdateCallback,
+} from "../@types/gamepadwrapper";
 
 export class GamepadManager {
   private gamepads: Record<number, GamepadState> = {};
@@ -92,14 +40,12 @@ export class GamepadManager {
     this.onUpdate = onUpdate;
     this.deadZone = options.deadZone ?? 0.1;
     this.precision = options.precision ?? 2;
-
     // Automatically start tracking gamepads
     this.start();
   }
 
   public start(): void {
     if (this.animationFrameId !== null) return;
-
     window.addEventListener("gamepadconnected", this.handleConnect);
     window.addEventListener("gamepaddisconnected", this.handleDisconnect);
     this.updateGamepads();
@@ -163,7 +109,6 @@ export class GamepadManager {
     if (rawGamepads) {
       for (const gamepad of rawGamepads) {
         if (!gamepad) continue;
-
         const currentState = this.mapGamepadState(gamepad as ExtendedGamepad);
         this.gamepads[gamepad.index] = currentState;
       }
@@ -175,10 +120,11 @@ export class GamepadManager {
   private mapGamepadState(gamepad: ExtendedGamepad): GamepadState {
     const buttonMapping =
       this.buttonMappings[gamepad.id] || this.defaultButtonMapping();
-
     return {
       id: gamepad.id,
       index: gamepad.index,
+      timestamp: gamepad.timestamp,
+      rawAxes: gamepad.axes.map((axis) => this.applyDeadZone(axis)),
       buttons: gamepad.buttons.map((button, originalIndex) => {
         const mapping = buttonMapping[originalIndex] || {
           index: originalIndex,
@@ -187,6 +133,7 @@ export class GamepadManager {
         return {
           value: button.value,
           pressed: button.pressed,
+          touched: button.touched,
           name: mapping.name,
         };
       }),
@@ -204,6 +151,7 @@ export class GamepadManager {
       hapticActuators: gamepad.hapticActuators,
       hand: gamepad.hand,
       displayId: gamepad.displayId,
+      vibrationActuator: gamepad.vibrationActuator,
     };
   }
 
@@ -211,7 +159,7 @@ export class GamepadManager {
     number,
     { index: number; name: string }
   > {
-    return {}; // Default 1:1 button mapping if no custom mapping is provided
+    return {}; // Default mapping (1:1)
   }
 
   private applyDeadZone(value: number): number {
